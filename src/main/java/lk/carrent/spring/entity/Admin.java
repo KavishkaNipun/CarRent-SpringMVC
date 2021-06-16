@@ -5,6 +5,7 @@ import javax.persistence.Id;
 
 @Entity
 
+
 public class Admin {
     @Id
     private String adminID;
