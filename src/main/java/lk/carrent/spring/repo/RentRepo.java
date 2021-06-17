@@ -1,2 +1,7 @@
-package lk.carrent.spring.repo;public interface RentRepo {
+package lk.carrent.spring.repo;
+
+import lk.carrent.spring.entity.Rent;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RentRepo extends JpaRepository<Rent,String> {
 }

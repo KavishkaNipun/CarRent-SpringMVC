@@ -1,4 +1,7 @@
 package lk.carrent.spring.exception;
 
-public class ValidateException {
+public class ValidateException extends RuntimeException{
+    public ValidateException(String message){
+        super(message);
+    }
 }
