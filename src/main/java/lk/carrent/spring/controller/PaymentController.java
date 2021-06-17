@@ -9,23 +9,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/carrent/payment")
 public class PaymentController {
-    @Autowired
-    private PaymentService PaymentService ;
+
+   @Autowired
+    private PaymentService PaymentService;
 
     @GetMapping(path = "search/{id}")
     public ResponseEntity searchPayment(String id){
-        PaymentDTO PaymentDTO = PaymentService.searchRentPayment(id);
+        PaymentDTO PaymentDTO = PaymentService.searchPayment(id);
         return new ResponseEntity(new StandardResponce("200", "Done", PaymentDTO), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity saveRentPayment(@RequestBody PaymentDTO PaymentDTO){
+    public ResponseEntity savePayment(@RequestBody PaymentDTO PaymentDTO){
         if (PaymentDTO.getRentID().trim().length() <= 0) {
             throw new NotFoundException("Damage id cannot be empty");
         }
@@ -34,25 +34,25 @@ public class PaymentController {
     }
 
     @PutMapping
-    public ResponseEntity updateCustomer(@RequestBody PaymentDTO rentPaymentDTO){
+    public ResponseEntity updateCustomer(@RequestBody PaymentDTO PaymentDTO){
 
-        if (rentPaymentDTO.getRentID().trim().length() <= 0) {
+        if (PaymentDTO.getRentID().trim().length() <= 0) {
             throw new NotFoundException("No id provided to update");
         }
-        PaymentService.updateRentPayment(rentPaymentDTO);
-        return new ResponseEntity(new StandardResponce("200", "Done", rentPaymentDTO), HttpStatus.OK);
+        PaymentService.updatePayment(PaymentDTO);
+        return new ResponseEntity(new StandardResponce("200", "Done", PaymentDTO), HttpStatus.OK);
     }
 
     @DeleteMapping
-    public ResponseEntity DeleteRentpayment(String id){
+    public ResponseEntity DeletePayment(String id){
 
-        PaymentService.deleteRentPayment(id);
+        PaymentService.deletePayment(id);
         return new ResponseEntity(new StandardResponce("200", "Done", null), HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity getAllRentPayment(@RequestBody DriverDTO driverDTO){
-        ArrayList<PaymentDTO> allRentPayment = PaymentService.getAllRentPayment();
+    public ResponseEntity getAllPayment(@RequestBody DriverDTO driverDTO){
+        ArrayList<PaymentDTO> allRentPayment = PaymentService.getAllPayment();
         return new ResponseEntity(new StandardResponce("200", "Done", allRentPayment), HttpStatus.OK);
     }
 }

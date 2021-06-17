@@ -19,5 +19,5 @@ public class Damage {
     private double returnFee;
     private String reason;
     @OneToOne()
-    private Return returnsID;
+    private Returns returnsID;
 }

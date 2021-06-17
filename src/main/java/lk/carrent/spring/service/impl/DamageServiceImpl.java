@@ -2,9 +2,11 @@ package lk.carrent.spring.service.impl;
 
 import lk.carrent.spring.dto.DamageDTO;
 import lk.carrent.spring.service.DamageService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+@Service
 public class DamageServiceImpl implements DamageService {
 
     @Override

@@ -9,11 +9,13 @@ import lk.carrent.spring.service.RentService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class RentServiceImpl implements RentService {
     @Autowired
     private RentRepo rentRepo;

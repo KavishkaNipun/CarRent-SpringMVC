@@ -1,8 +1,10 @@
 package lk.carrent.spring.service;
 
 import lk.carrent.spring.dto.AdminDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+
 
 public interface AdminService {
     void addAdmin(AdminDTO dto);

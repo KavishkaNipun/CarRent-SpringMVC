@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @ComponentScan(basePackages = "lk.carrent.spring")
 public class WebAppConfig {
+
     @Bean
     public ModelMapper modelMapper(){
         return new ModelMapper();

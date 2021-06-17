@@ -1,6 +1,7 @@
 package lk.carrent.spring.service;
 
 import lk.carrent.spring.dto.CustomerDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 

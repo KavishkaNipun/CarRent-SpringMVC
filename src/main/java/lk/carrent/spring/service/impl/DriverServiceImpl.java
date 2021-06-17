@@ -2,9 +2,11 @@ package lk.carrent.spring.service.impl;
 
 import lk.carrent.spring.dto.DriverDTO;
 import lk.carrent.spring.service.DriverService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+@Service
 public class DriverServiceImpl implements DriverService {
     @Override
     public void addDriver(DriverDTO dto) {
@@ -13,7 +15,6 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void deleteDriver(String id) {
-
     }
 
     @Override

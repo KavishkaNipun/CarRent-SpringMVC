@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/carrent/customer")
 public class CustomerController {
-
     @Autowired
     private CustomerService service;
 

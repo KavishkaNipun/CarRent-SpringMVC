@@ -1,9 +1,9 @@
 package lk.carrent.spring.controller;
 
 import lk.carrent.spring.dto.DriverDTO;
-import lk.carrent.spring.dto.ReturnDTO;
+import lk.carrent.spring.dto.ReturnsDTO;
 import lk.carrent.spring.exception.NotFoundException;
-import lk.carrent.spring.service.ReturnService;
+import lk.carrent.spring.service.ReturnsService;
 import lk.carrent.spring.util.StandardResponce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,43 +17,43 @@ import java.util.ArrayList;
 public class ReturnController {
 
     @Autowired
-    private ReturnService returnService ;
+    private ReturnsService returnsService;
 
     @GetMapping(path = "search/{id}")
     public ResponseEntity searchReturn(String id){
-        ReturnDTO returnDTO = returnService.searchReturn(id);
-        return new ResponseEntity(new StandardResponce("200", "Done", returnDTO), HttpStatus.OK);
+        ReturnsDTO returnsDTO = returnsService.searchReturn(id);
+        return new ResponseEntity(new StandardResponce("200", "Done", returnsDTO), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity saveReturns(@RequestBody ReturnDTO returnDTO){
-        if (returnDTO.getReturnID().trim().length() <= 0) {
+    public ResponseEntity saveReturn(@RequestBody ReturnsDTO returnsDTO){
+        if (returnsDTO.getReturnID().trim().length() <= 0) {
             throw new NotFoundException("Returns id cannot be empty");
         }
-        returnService.addReturn(returnDTO);
-        return new ResponseEntity(new StandardResponce("201", "Done", returnDTO), HttpStatus.CREATED);
+        returnsService.addReturn(returnsDTO);
+        return new ResponseEntity(new StandardResponce("201", "Done", returnsDTO), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity updateReturns(@RequestBody ReturnDTO returnsDTO){
+    public ResponseEntity updateReturn(@RequestBody ReturnsDTO returnsDTO){
 
         if (returnsDTO.getReturnID().trim().length() <= 0) {
             throw new NotFoundException("No id provided to update");
         }
-        returnService.updateReturn(returnsDTO);
+        returnsService.updateReturn(returnsDTO);
         return new ResponseEntity(new StandardResponce("200", "Done", returnsDTO), HttpStatus.OK);
     }
 
     @DeleteMapping
-    public ResponseEntity DeleteReturns(String id){
+    public ResponseEntity DeleteReturn(String id){
 
-        returnService.deleteReturn(id);
+        returnsService.deleteReturn(id);
         return new ResponseEntity(new StandardResponce("200", "Done", null), HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity getAllReturns(@RequestBody DriverDTO driverDTO){
-        ArrayList<ReturnDTO> allReturn = returnService.getAllReturn();
+    public ResponseEntity getAllReturn(@RequestBody DriverDTO driverDTO){
+        ArrayList<ReturnsDTO> allReturn = returnsService.getAllReturn();
         return new ResponseEntity(new StandardResponce("200", "Done", allReturn), HttpStatus.OK);
     }
 }

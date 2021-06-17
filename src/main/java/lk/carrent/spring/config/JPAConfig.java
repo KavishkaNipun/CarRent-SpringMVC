@@ -48,13 +48,6 @@ public class JPAConfig {
         return dataSource;
     }
 
-//    @Bean
-//    public DataSource dataSource() throws NamingException {
-//        JndiTemplate jndiTemplate = new JndiTemplate();
-//        JndiTemplate.lookup("java:comp/env/jdbc/pool");
-//
-//    }
-
     @Bean
     public JpaVendorAdapter vendorAdapter(){
         HibernateJpaVendorAdapter va = new HibernateJpaVendorAdapter();
