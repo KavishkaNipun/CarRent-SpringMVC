@@ -11,8 +11,6 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Data
 public class DamageDTO {
-
-    @Id
     private String damageID;
     private double returnFee;
     private String reason;

@@ -11,8 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class DriverDTO {
-
-    @Id
     private String driverId;
     private String firstName;
     private String lastName;

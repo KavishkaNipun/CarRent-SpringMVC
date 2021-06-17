@@ -11,8 +11,6 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Data
 public class MaintainceDTO {
-
-    @Id
     private String maintainID;
     private String status;
     private String reason;

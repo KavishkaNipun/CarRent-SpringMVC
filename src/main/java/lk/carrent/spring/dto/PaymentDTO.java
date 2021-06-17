@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class PaymentDTO {
-
-
     private String rentID;
     private String date;
     private double fee;

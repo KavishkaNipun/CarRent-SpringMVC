@@ -10,8 +10,6 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Data
 public class RentDTO {
-
-    @Id
     private String rentID;
     private String pickUpDate;
     private String pickOffDate;

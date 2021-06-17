@@ -5,13 +5,13 @@ import lk.carrent.spring.dto.PaymentDTO;
 import java.util.ArrayList;
 
 public interface PaymentService {
-    void addRentPayment(PaymentDTO dto);
+    void addPayment(PaymentDTO dto);
 
-    void deleteRentPayment(String id);
+    void deletePayment(String id);
 
-    PaymentDTO searchRentPayment(String id);
+    PaymentDTO searchPayment(String id);
 
-    ArrayList<PaymentDTO> getAllRentPayment();
+    ArrayList<PaymentDTO> getAllPayment();
 
-    void updateRentPayment(PaymentDTO dto);
+    void updatePayment(PaymentDTO dto);
 }

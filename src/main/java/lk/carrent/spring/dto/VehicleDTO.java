@@ -6,13 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class VehicleDTO {
-
-
     private String vehicleID;
     private String brand;
     private String model;

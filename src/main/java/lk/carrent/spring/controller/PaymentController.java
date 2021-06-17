@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+@RestController
+@RequestMapping("/carrent/payment")
 public class PaymentController {
     @Autowired
     private PaymentService PaymentService ;
@@ -23,12 +25,12 @@ public class PaymentController {
     }
 
     @PostMapping
-    public ResponseEntity saveRentPayment(@RequestBody PaymentDTO rentPaymentDTO){
-        if (rentPaymentDTO.getRentID().trim().length() <= 0) {
+    public ResponseEntity saveRentPayment(@RequestBody PaymentDTO PaymentDTO){
+        if (PaymentDTO.getRentID().trim().length() <= 0) {
             throw new NotFoundException("Damage id cannot be empty");
         }
         PaymentService.addPayment(PaymentDTO);
-        return new ResponseEntity(new StandardResponce("201", "Done", rentPaymentDTO), HttpStatus.CREATED);
+        return new ResponseEntity(new StandardResponce("201", "Done", PaymentDTO), HttpStatus.CREATED);
     }
 
     @PutMapping
